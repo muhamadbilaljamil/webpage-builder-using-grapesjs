@@ -1,22 +1,39 @@
 //@ts-ignore
 "use client";
 import React, { useState, useEffect } from "react";
-// import grapesjs from "grapesjs";
+import grapesjs from "grapesjs";
+import plugin from 'grapesjs-blocks-basic';
 import "grapesjs/dist/css/grapes.min.css";
+import { LeftSideMenu, ContentSection } from "..";
 
 const PageBuilder = () => {
-  // const [editor, setEditor] = useState(null);
+  const [editor, setEditor] = useState();
 
-  // useEffect(() => {
-  //   const editor = grapesjs.init({
-  //     container: "#editor",
-  //   });
-  //   setEditor(editor);
-  // }, []);
+  useEffect(() => {
+    const editor = grapesjs.init({
+      container: "#editor",
+      storageManager: false,
+      plugins: ['gjs-blocks-basic'],
+      pluginsOpts: {
+        'gjs-blocks-basic': {}
+      },
+      blockManager: {
+        appendTo: "#blocks"
+      },
+      layerManager: {
+        appendTo: '#layer-container'
+      },
+      styleManager: {
+        appendTo: '#style-view'
+      }
+    });
+    setEditor(editor);
+  }, []);
 
   return (
-    <div>
-      {/* <div id="editor"></div> */}
+    <div className="grid grid-cols-12 h-[100vh]">
+      <LeftSideMenu />
+      <ContentSection />
     </div>
   );
 };
