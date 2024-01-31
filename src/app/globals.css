@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.gjs-pn-views-container {
+  display: none !important;
+}
+
+.gjs-cv-canvas {
+  width: 100% !important;
+}
+
+/* Theming */
+.gjs-one-bg {
+  background-color: #fff !important;
+}
+
+.gjs-two-color {
+  color: #9ca8bb !important;
+}

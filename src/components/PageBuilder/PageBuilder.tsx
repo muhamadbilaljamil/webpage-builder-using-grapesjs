@@ -25,6 +25,12 @@ const PageBuilder = () => {
       },
       styleManager: {
         appendTo: '#style-view'
+      },
+      panels: {
+        defaults: {
+
+        }
+
       }
     });
     setEditor(editor);
